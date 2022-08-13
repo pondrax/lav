@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Traits\Filter;
+use App\Traits\Uuid;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {{class}} extends Model
+{
+    use Uuid, Filter, HasFactory;
+
+    protected $table = '{{table}}';
+
+    protected $fillable = {{fillable}};
+}

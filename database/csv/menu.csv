@@ -1,0 +1,3 @@
+code,name,description,icon,routes|json
+0.1,Developer,"Developer, description",,"[{'uri':'api/app/dashboard','permission':'dashboard.index'},{'uri':'api/app/menu','permission':'menu.index'},{'uri':'api/app/role','permission':'role.index'},{'uri':'api/app/user','permission':'user.index'},{'uri':'api/app/dev','permission':'dev.index'}]"
+1.1,Management,"Management, description",,"[{'uri':'api/app/dashboard','permission':'dashboard.index'},{'uri':'api/app/role','permission':'role.index'},{'uri':'api/app/user','permission':'user.index'}]"

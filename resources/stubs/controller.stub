@@ -1,0 +1,71 @@
+<?php
+
+namespace {{namespace}};
+
+use {{rootNamespace}}Models\{{model}};
+use {{rootNamespace}}Http\Controllers\Controller;
+use {{rootNamespace}}Http\Resources\Response;
+use {{rootNamespace}}Http\Requests\Store{{model}}Request;
+use {{rootNamespace}}Http\Requests\Update{{model}}Request;
+
+
+class {{class}} extends Controller
+{
+	/**
+     * Index {{resource}}
+     *
+	 * Display a listing of {{resource}}.
+	 */
+	public function index({{model}} ${{resource}})
+	{
+        return new Response(${{resource}}->filter()->table());
+	}
+
+	/**
+     * Store {{resource}}
+     *
+	 * Store a newly created {{resource}} in storage.
+	 */
+	public function store({{model}} ${{resource}}, Store{{model}}Request $request)
+	{
+        $data = $request->validated();
+        $response = ${{resource}}->create($data);
+
+        return new Response($response, 200, 'Added');
+	}
+
+	/**
+     * Show {{resource}}
+     *
+	 * Display the specified {{resource}}.
+	 */
+	public function show({{model}} ${{resource}})
+	{
+        return new Response(${{resource}});
+	}
+
+	/**
+	 * Update the specified {{resource}} in storage.
+	 *
+	 * @param {{model}}  ${{resource}}
+     */
+    public function update({{model}} ${{resource}}, Update{{model}}Request $request)
+	{
+        $data = $request->validated();
+        $response = ${{resource}}->update($data);
+
+        return new Response($response, 200, 'Updated');
+	}
+
+	/**
+	 * Remove the specified {{resource}} from storage.
+	 *
+	 * @param {{model}}  ${{resource}}
+	 */
+	public function destroy({{model}} ${{resource}})
+	{
+        $response = ${{resource}}->delete();
+        
+        return new Response($response, 200, 'Deleted');
+	}
+}

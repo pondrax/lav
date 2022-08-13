@@ -1,0 +1,24 @@
+name,slug,system
+Dev Index,dev.index,1
+Dev Store,dev.store,1
+Dashboard Index,dashboard.index,1
+Menu Index,menu.index,1
+Menu Show,menu.show,1
+Menu Store,menu.store,1
+Menu Update,menu.update,1
+Menu Destroy,menu.destroy,1
+Menu Routes,menu.routes,1
+Permission Index,permission.index,1
+Permission Show,permission.show,1
+Role Index,role.index,1
+Role Show,role.show,1
+Role Store,role.store,1
+Role Update,role.update,1
+Role Destroy,role.destroy,1
+Role Assign Permission,role.assign.permission,1
+User Index,user.index,1
+User Show,user.show,1
+User Store,user.store,1
+User Update,user.update,1
+User Destroy,user.destroy,1
+User Assign Role,user.assign.role,1

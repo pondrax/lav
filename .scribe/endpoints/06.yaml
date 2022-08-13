@@ -1,0 +1,222 @@
+name: BarTest
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/post/bar_test
+    metadata:
+      title: 'Index bar_test'
+      description: 'Display a listing of bar_test.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      filter.created_at:
+        name: filter.created_at
+        description: 'Filter Fields'
+        required: false
+        example: null
+        type: string
+        custom: []
+      sort:
+        name: sort
+        description: 'Sort Fields'
+        required: false
+        example: created_at
+        type: string
+        custom: []
+      order:
+        name: order
+        description: 'Order Direction'
+        required: false
+        example: desc
+        type: string
+        custom: []
+      page:
+        name: page
+        description: 'Page number to return.'
+        required: false
+        example: 1
+        type: string
+        custom: []
+      limit:
+        name: limit
+        description: 'Number of items to return in a page. Defaults to 10.'
+        required: false
+        example: 10
+        type: string
+        custom: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/post/bar_test
+    metadata:
+      title: 'Store bar_test'
+      description: 'Store a newly created bar_test in storage.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+      body:
+        name: body
+        description: ''
+        required: true
+        example: exercitationem
+        type: string
+        custom: []
+      slug:
+        name: slug
+        description: ''
+        required: true
+        example: ut
+        type: string
+        custom: []
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2022-08-13T12:58:41'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/post/bar_test/{id}'
+    metadata:
+      title: 'Show bar_test'
+      description: 'Display the specified bar_test.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bar test.'
+        required: true
+        example: aut
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/post/bar_test/{id}'
+    metadata:
+      title: 'Update the specified bar_test in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bar test.'
+        required: true
+        example: molestias
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: sit
+        type: string
+        custom: []
+      body:
+        name: body
+        description: ''
+        required: true
+        example: fugit
+        type: string
+        custom: []
+      slug:
+        name: slug
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2022-08-13T12:58:41'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/post/bar_test/{id}'
+    metadata:
+      title: 'Remove the specified bar_test from storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bar test.'
+        required: true
+        example: optio
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []

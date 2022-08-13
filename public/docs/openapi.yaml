@@ -1,0 +1,2032 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/auth/login:
+    post:
+      summary: Login
+      description: 'Handle authentication attempt'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Auth Bearer'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: zdicki@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: tpjad
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: Logout
+      description: 'Handle authentication attempt'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Auth Bearer'
+      security: []
+  /api/auth/register:
+    post:
+      summary: Register
+      description: 'Handle new registration'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Auth Bearer'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: consequatur
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: eokon@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: bngqupl
+              required:
+                - name
+                - email
+                - password
+      security: []
+  '/api/auth/{provider}':
+    get:
+      summary: 'Redirect to Provider'
+      description: 'Handle oauth authentication attempt'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        302:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI'\" />\n\n        <title>Redirecting to https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI\">https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI</a>.\n    </body>\n</html>"
+      tags:
+        - '#Auth Social'
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: 'Provider authentication.'
+        example: google
+        required: true
+        schema:
+          type: string
+  '/api/auth/{provider}/callback':
+    get:
+      summary: 'Handle Callback Provider'
+      description: 'Handle oauth authentication attempt'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Token Invalid'
+                properties:
+                  message:
+                    type: string
+                    example: 'Token Invalid'
+      tags:
+        - '#Auth Social'
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: 'Provider authentication.'
+        example: google
+        required: true
+        schema:
+          type: string
+  /api/app/dev:
+    get:
+      summary: 'List Routes'
+      description: 'List all route'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Dev Management'
+    post:
+      summary: Generator
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Dev Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uri:
+                  type: string
+                  description: ''
+                  example: facilis
+                model:
+                  type: string
+                  description: ''
+                  example: voluptates
+                description:
+                  type: string
+                  description: ''
+                  example: culpa
+                resources:
+                  type: array
+                  description: ''
+                  example:
+                    - autem
+                  items:
+                    type: string
+                schema:
+                  type: string
+                  description: ''
+                  example: ipsum
+  /api/app/menu:
+    get:
+      summary: 'List Menu'
+      description: 'List all menu'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Menu Management'
+    post:
+      summary: 'Save Menu'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Menu Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: eius
+                name:
+                  type: string
+                  description: ''
+                  example: sit
+                description:
+                  type: string
+                  description: ''
+                  example: explicabo
+                icon:
+                  type: string
+                  description: ''
+                  example: nulla
+                routes:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        description: ''
+                        example: sequi
+                      permission:
+                        type: string
+                        description: ''
+                        example: iste
+                    required:
+                      - url
+                      - permission
+              required:
+                - code
+                - name
+                - description
+                - icon
+  '/api/app/menu/{id}':
+    get:
+      summary: 'Show Menu'
+      description: 'Show Menu Detail'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Menu Management'
+    put:
+      summary: 'Update Menu'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Menu Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: officiis
+                name:
+                  type: string
+                  description: ''
+                  example: aut
+                description:
+                  type: string
+                  description: ''
+                  example: voluptas
+                icon:
+                  type: string
+                  description: ''
+                  example: autem
+                routes:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        description: ''
+                        example: illo
+                      permission:
+                        type: string
+                        description: ''
+                        example: consequatur
+                    required:
+                      - url
+                      - permission
+              required:
+                - code
+                - name
+                - description
+                - icon
+    delete:
+      summary: 'Delete Menu'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Menu Management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the menu.'
+        example: LzVLYOj
+        required: true
+        schema:
+          type: string
+  /api/app/permission:
+    get:
+      summary: 'List All Permission'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Role Management'
+  '/api/app/permission/{id}':
+    get:
+      summary: 'Show Permission Detail'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Role Management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the permission.'
+        example: 0m8KYA5
+        required: true
+        schema:
+          type: string
+  /api/app/role:
+    get:
+      summary: 'List Role'
+      description: 'List all available Roles'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Role Management'
+    post:
+      summary: 'Save Role'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Role Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: aut
+                slug:
+                  type: string
+                  description: ''
+                  example: earum
+                description:
+                  type: string
+                  description: ''
+                  example: odit
+                system:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - name
+                - slug
+                - description
+  '/api/app/role/{id}':
+    get:
+      summary: 'Show Role Detail'
+      description: 'Show Detail for specific role'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#Role Management'
+    put:
+      summary: 'Update Role'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Role Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: et
+                slug:
+                  type: string
+                  description: ''
+                  example: voluptatum
+                description:
+                  type: string
+                  description: ''
+                  example: molestias
+                system:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - name
+                - slug
+    delete:
+      summary: 'Delete Role'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Role Management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the role.'
+        example: 2Oz60oz
+        required: true
+        schema:
+          type: string
+  '/api/app/role/{role_id}/assign-permission':
+    post:
+      summary: 'Assign Role Permission'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#Role Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                permissions:
+                  type: array
+                  description: ''
+                  example:
+                    - magni
+                  items:
+                    type: string
+              required:
+                - permissions
+    parameters:
+      -
+        in: path
+        name: role_id
+        description: 'The ID of the role.'
+        example: 2Oz60oz
+        required: true
+        schema:
+          type: string
+  /api/app/user:
+    get:
+      summary: 'List User'
+      description: 'List All User'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#User Management'
+    post:
+      summary: 'Save User'
+      description: 'Save User'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: reprehenderit
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: elza.hayes@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: d
+              required:
+                - name
+                - email
+                - password
+  '/api/app/user/{id}':
+    get:
+      summary: 'Show Detail User'
+      description: 'Show Detail User'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - '#User Management'
+    put:
+      summary: 'Update User'
+      description: 'Update Detail User'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: accusantium
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ajast@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: upwkp
+              required:
+                - name
+                - email
+    delete:
+      summary: 'Delete User'
+      description: 'Delete User'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#User Management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: kgyjgNv
+        required: true
+        schema:
+          type: string
+  '/api/app/user/{user_id}/assign-role':
+    post:
+      summary: 'Attach Role to User'
+      description: 'Attach Role to user'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '#User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roles:
+                  type: array
+                  description: ''
+                  example:
+                    - quia
+                  items:
+                    type: string
+              required:
+                - roles
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: kgyjgNv
+        required: true
+        schema:
+          type: string
+  /api/post/bar_test:
+    get:
+      summary: 'Index bar_test'
+      description: 'Display a listing of bar_test.'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - BarTest
+    post:
+      summary: 'Store bar_test'
+      description: 'Store a newly created bar_test in storage.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - BarTest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: aut
+                body:
+                  type: string
+                  description: ''
+                  example: exercitationem
+                slug:
+                  type: string
+                  description: ''
+                  example: ut
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2022-08-13T12:58:41'
+              required:
+                - title
+                - body
+                - slug
+                - published_at
+  '/api/post/bar_test/{id}':
+    get:
+      summary: 'Show bar_test'
+      description: 'Display the specified bar_test.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - BarTest
+    put:
+      summary: 'Update the specified bar_test in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - BarTest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: sit
+                body:
+                  type: string
+                  description: ''
+                  example: fugit
+                slug:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2022-08-13T12:58:41'
+              required:
+                - title
+                - body
+                - slug
+                - published_at
+    delete:
+      summary: 'Remove the specified bar_test from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - BarTest
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the bar test.'
+        example: aut
+        required: true
+        schema:
+          type: string
+  /api/app/dashboard:
+    get:
+      summary: 'App Dashboard'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Dashboard
+  /api/app/profile:
+    get:
+      summary: 'Get Profile'
+      description: 'Get detail User Profile'
+      parameters:
+        -
+          in: query
+          name: filter.created_at
+          description: 'Filter Fields'
+          example: null
+          required: false
+          schema:
+            type: string
+            description: 'Filter Fields'
+            example: null
+        -
+          in: query
+          name: sort
+          description: 'Sort Fields'
+          example: created_at
+          required: false
+          schema:
+            type: string
+            description: 'Sort Fields'
+            example: created_at
+        -
+          in: query
+          name: order
+          description: 'Order Direction'
+          example: desc
+          required: false
+          schema:
+            type: string
+            description: 'Order Direction'
+            example: desc
+        -
+          in: query
+          name: page
+          description: 'Page number to return.'
+          example: 1
+          required: false
+          schema:
+            type: string
+            description: 'Page number to return.'
+            example: 1
+        -
+          in: query
+          name: limit
+          description: 'Number of items to return in a page. Defaults to 10.'
+          example: 10
+          required: false
+          schema:
+            type: string
+            description: 'Number of items to return in a page. Defaults to 10.'
+            example: 10
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Profile
+    post:
+      summary: 'Update Profile'
+      description: 'Update User Profile'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nik:
+                  type: string
+                  description: 'Must be 16 digits.'
+                  example: '7486586883703436'
+                name:
+                  type: string
+                  description: ''
+                  example: eaque
+                nip:
+                  type: string
+                  description: ''
+                  example: eum
+                telepon:
+                  type: string
+                  description: ''
+                  example: iusto
+                jabatan:
+                  type: string
+                  description: ''
+                  example: ut
+                unit_kerja:
+                  type: string
+                  description: ''
+                  example: maiores
+                golongan:
+                  type: string
+                  description: ''
+                  example: ipsa
+              required:
+                - nik
+tags:
+  -
+    name: '#Auth Bearer'
+    description: ''
+  -
+    name: '#Auth Social'
+    description: ''
+  -
+    name: '#Dev Management'
+    description: ''
+  -
+    name: '#Menu Management'
+    description: ''
+  -
+    name: '#Role Management'
+    description: ''
+  -
+    name: '#User Management'
+    description: ''
+  -
+    name: BarTest
+    description: ''
+  -
+    name: Dashboard
+    description: ''
+  -
+    name: Profile
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []
