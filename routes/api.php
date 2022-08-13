@@ -49,6 +49,6 @@ Route::group(['middleware' => [
     });
 });
 
-Route::apiResource('post/bar_test', App\Http\Controllers\Post\BarTestController::class)->only(['index', 'show', 'store', 'update', 'destroy'])->middleware(['auth:sanctum', 'route.permission']); //generated#
-
-Route::apiResource('post/bar_test', App\Http\Controllers\Post\BarTestController::class)->only(['index','show','store','update','destroy'])->middleware(['auth:sanctum','route.permission']); #generated#
+Route::apiResource('posttest', App\Http\Controllers\PosttestController::class)->only(['store','update'])->middleware(['auth:sanctum','route.permission']); #generated#
+Route::apiResource('postest', App\Http\Controllers\PostestController::class)->only(['store','update'])->middleware(['auth:sanctum','route.permission']); #generated#
+Route::apiResource('posttest', App\Http\Controllers\PosttestController::class)->only(['store','update'])->middleware(['auth:sanctum','route.permission']); #generated#

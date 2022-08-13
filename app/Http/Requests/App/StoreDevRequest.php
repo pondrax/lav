@@ -23,10 +23,32 @@ class StoreDevRequest extends FormRequest
     {
         return [
             'uri' => 'string',
-            'model' => 'string',
-            'description' => 'string',
-            'resources' => 'array', //['index','show','store','update','destroy']
-            'schema' => 'string', // Migration Schema
+            'methods' => 'required|array', //['index','show','store','update','destroy']
+            // 'methods' => 'required|string',
+            'schema' => 'required|string', // Migration Schema
+            'force' => 'boolean', // Migration Schema
+        ];
+    }
+
+    public function bodyParameters()
+    {
+        return [
+            'uri' => [
+                'description' => 'Uri Path / Model Name',
+                'example'   => 'post'
+            ],
+            'methods' => [
+                'description' => 'Available Methods',
+                'example'   => ['index','show','store','update','destroy']
+            ],
+            'schema' => [
+                'description' => 'Generate Migration with schema',
+                'example' => 'title:string, body:text, slug:string:unique, published_at:date'
+            ],
+            'force' => [
+                'description' => 'Force Generate',
+                'example'   => false
+            ]
         ];
     }
 }

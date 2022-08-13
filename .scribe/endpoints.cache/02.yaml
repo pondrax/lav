@@ -82,39 +82,36 @@ endpoints:
     bodyParameters:
       uri:
         name: uri
-        description: ''
+        description: 'Uri Path / Model Name.'
         required: false
-        example: facilis
+        example: post
         type: string
         custom: []
-      model:
-        name: model
-        description: ''
-        required: false
-        example: voluptates
-        type: string
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: culpa
-        type: string
-        custom: []
-      resources:
-        name: resources
-        description: ''
-        required: false
+      methods:
+        name: methods
+        description: 'Available Methods.'
+        required: true
         example:
-          - autem
+          - index
+          - show
+          - store
+          - update
+          - destroy
         type: 'string[]'
         custom: []
       schema:
         name: schema
-        description: ''
-        required: false
-        example: ipsum
+        description: 'Generate Migration with schema.'
+        required: true
+        example: 'title:string, body:text, slug:string:unique, published_at:date'
         type: string
+        custom: []
+      force:
+        name: force
+        description: 'Force Generate.'
+        required: false
+        example: false
+        type: boolean
         custom: []
     responses: []
     responseFields: []

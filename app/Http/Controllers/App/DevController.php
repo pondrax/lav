@@ -44,10 +44,11 @@ class DevController extends Controller
      */
     public function store(StoreDevRequest $request)
     {
-        $name = 'post/bar_test';
-        $methods = ['index', 'show', 'store', 'update', 'destroy'];
-        $schema = 'title:string, body:text, slug:string:unique, published_at:date';
-        $force = true;
+        $request->validated();
+        $name = $request->post('uri');
+        $methods = $request->post('methods');
+        $schema = $request->post('schema');
+        $force = $request->post('force');
         $migrate = true;
         [$result, $messages] = (new Generator)->generate($name, $methods, $schema, $migrate, $force);
 

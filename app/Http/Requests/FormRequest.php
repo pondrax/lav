@@ -30,8 +30,8 @@ class FormRequest extends BaseFormRequest
     {
         return collect($validatedData)->map(function ($data, $key) {
             if (isset($this->rules()[$key])
-        && str()->contains($this->rules()[$key], ['file', 'mimes'])
-        && $data instanceof UploadedFile) {
+                && collect($this->rules()[$key])->hasAny(['file', 'mimes'])
+                && $data instanceof UploadedFile) {
                 $this->storeUploadedFile($data, $key);
             }
 

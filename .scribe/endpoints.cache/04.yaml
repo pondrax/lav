@@ -82,7 +82,7 @@ endpoints:
         name: id
         description: 'The ID of the permission.'
         required: true
-        example: 0m8KYA5
+        example: 2o2RGpK
         type: string
         custom: []
     queryParameters: []
@@ -178,21 +178,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: aut
+        example: voluptas
         type: string
         custom: []
       slug:
         name: slug
         description: ''
         required: true
-        example: earum
+        example: qui
         type: string
         custom: []
       description:
         name: description
         description: ''
         required: true
-        example: odit
+        example: deleniti
         type: string
         custom: []
       system:
@@ -222,7 +222,7 @@ endpoints:
         name: id
         description: 'The ID of the role.'
         required: true
-        example: 2Oz60oz
+        example: 0jm0x23
         type: string
         custom: []
     queryParameters: []
@@ -256,7 +256,7 @@ endpoints:
         name: id
         description: 'The ID of the role.'
         required: true
-        example: 2Oz60oz
+        example: 0jm0x23
         type: string
         custom: []
     queryParameters: []
@@ -265,21 +265,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: et
+        example: nisi
         type: string
         custom: []
       slug:
         name: slug
         description: ''
         required: true
-        example: voluptatum
+        example: aut
         type: string
         custom: []
       description:
         name: description
         description: ''
         required: false
-        example: molestias
+        example: inventore
         type: string
         custom: []
       system:
@@ -309,7 +309,7 @@ endpoints:
         name: id
         description: 'The ID of the role.'
         required: true
-        example: 2Oz60oz
+        example: 0jm0x23
         type: string
         custom: []
     queryParameters: []
@@ -334,7 +334,7 @@ endpoints:
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 2Oz60oz
+        example: 0jm0x23
         type: string
         custom: []
     queryParameters: []
@@ -344,7 +344,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - magni
+          - voluptatibus
         type: 'string[]'
         custom: []
     responses: []

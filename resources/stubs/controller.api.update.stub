@@ -5,7 +5,6 @@ namespace {{namespace}};
 use {{rootNamespace}}Models\{{model}};
 use {{rootNamespace}}Http\Controllers\Controller;
 use {{rootNamespace}}Http\Resources\Response;
-use {{rootNamespace}}Http\Requests\Store{{model}}Request;
 use {{rootNamespace}}Http\Requests\Update{{model}}Request;
 
 /**
@@ -15,9 +14,9 @@ use {{rootNamespace}}Http\Requests\Update{{model}}Request;
 class {{class}} extends Controller
 {
 	/**
-     * Index {{resource}}
+     * Index {{model}}
      *
-	 * Display a listing of {{resource}}.
+	 * Display a listing of {{model}}.
 	 */
 	public function index({{model}} ${{resource}})
 	{
@@ -25,9 +24,19 @@ class {{class}} extends Controller
 	}
 
 	/**
-     * Store {{resource}}
+     * Show {{model}}
      *
-	 * Store a newly created {{resource}} in storage.
+	 * Display the specified {{model}}.
+	 */
+	public function show({{model}} ${{resource}})
+	{
+        return new Response(${{resource}});
+	}
+
+	/**
+     * Store {{model}}
+     *
+	 * Store a newly created {{model}}.
 	 */
 	public function store({{model}} ${{resource}}, Store{{model}}Request $request)
 	{
@@ -38,17 +47,7 @@ class {{class}} extends Controller
 	}
 
 	/**
-     * Show {{resource}}
-     *
-	 * Display the specified {{resource}}.
-	 */
-	public function show({{model}} ${{resource}})
-	{
-        return new Response(${{resource}});
-	}
-
-	/**
-	 * Update the specified {{resource}} in storage.
+	 * Update the specified {{model}}.
 	 *
 	 * @param {{model}}  ${{resource}}
      */
@@ -61,7 +60,7 @@ class {{class}} extends Controller
 	}
 
 	/**
-	 * Remove the specified {{resource}} from storage.
+	 * Remove the specified {{model}}.
 	 *
 	 * @param {{model}}  ${{resource}}
 	 */

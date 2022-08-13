@@ -84,28 +84,28 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: eius
+        example: consectetur
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: true
-        example: sit
+        example: in
         type: string
         custom: []
       description:
         name: description
         description: ''
         required: true
-        example: explicabo
+        example: repudiandae
         type: string
         custom: []
       icon:
         name: icon
         description: ''
         required: true
-        example: nulla
+        example: voluptatem
         type: string
         custom: []
       routes:
@@ -120,14 +120,14 @@ endpoints:
         name: 'routes[].url'
         description: ''
         required: true
-        example: sequi
+        example: asperiores
         type: string
         custom: []
       'routes[].permission':
         name: 'routes[].permission'
         description: ''
         required: true
-        example: iste
+        example: ipsam
         type: string
         custom: []
     responses: []
@@ -150,7 +150,7 @@ endpoints:
         name: id
         description: 'The ID of the menu.'
         required: true
-        example: LzVLYOj
+        example: 7L13vYy
         type: string
         custom: []
     queryParameters: []
@@ -184,7 +184,7 @@ endpoints:
         name: id
         description: 'The ID of the menu.'
         required: true
-        example: LzVLYOj
+        example: 7L13vYy
         type: string
         custom: []
     queryParameters: []
@@ -193,28 +193,28 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: officiis
+        example: commodi
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: true
-        example: aut
+        example: iusto
         type: string
         custom: []
       description:
         name: description
         description: ''
         required: true
-        example: voluptas
+        example: possimus
         type: string
         custom: []
       icon:
         name: icon
         description: ''
         required: true
-        example: autem
+        example: aut
         type: string
         custom: []
       routes:
@@ -229,14 +229,14 @@ endpoints:
         name: 'routes[].url'
         description: ''
         required: true
-        example: illo
+        example: voluptatem
         type: string
         custom: []
       'routes[].permission':
         name: 'routes[].permission'
         description: ''
         required: true
-        example: consequatur
+        example: blanditiis
         type: string
         custom: []
     responses: []
@@ -259,7 +259,7 @@ endpoints:
         name: id
         description: 'The ID of the menu.'
         required: true
-        example: LzVLYOj
+        example: 7L13vYy
         type: string
         custom: []
     queryParameters: []

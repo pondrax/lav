@@ -1,13 +1,13 @@
-name: Dashboard
+name: Posttest
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/app/dashboard
+      - POST
+    uri: api/posttest
     metadata:
-      title: 'App Dashboard'
-      description: ''
+      title: 'Store Posttest'
+      description: 'Store a newly created Posttest.'
       authenticated: true
       custom: []
     headers:
@@ -15,50 +15,89 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters:
-      filter.created_at:
-        name: filter.created_at
-        description: 'Filter Fields'
-        required: false
-        example: null
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: aliquam
         type: string
         custom: []
-      sort:
-        name: sort
-        description: 'Sort Fields'
-        required: false
-        example: created_at
+      body:
+        name: body
+        description: ''
+        required: true
+        example: delectus
         type: string
         custom: []
-      order:
-        name: order
-        description: 'Order Direction'
-        required: false
-        example: desc
+      slug:
+        name: slug
+        description: ''
+        required: true
+        example: sunt
         type: string
         custom: []
-      page:
-        name: page
-        description: 'Page number to return.'
-        required: false
-        example: 1
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2022-08-13T23:31:49'
         type: string
         custom: []
-      limit:
-        name: limit
-        description: 'Number of items to return in a page. Defaults to 10.'
-        required: false
-        example: 10
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/posttest/{id}'
+    metadata:
+      title: 'Update the specified Posttest.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the posttest.'
+        required: true
+        example: explicabo
         type: string
         custom: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: cumque
+        type: string
+        custom: []
+      body:
+        name: body
+        description: ''
+        required: true
+        example: omnis
+        type: string
+        custom: []
+      slug:
+        name: slug
+        description: ''
+        required: true
+        example: aperiam
+        type: string
+        custom: []
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2022-08-13T23:31:49'
+        type: string
+        custom: []
+    responses: []
     responseFields: []

@@ -84,21 +84,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: reprehenderit
+        example: non
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: elza.hayes@example.com
+        example: yjacobson@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: d
+        example: uqajka
         type: string
         custom: []
     responses: []
@@ -121,7 +121,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: kgyjgNv
+        example: O2wG5LR
         type: string
         custom: []
     queryParameters: []
@@ -155,7 +155,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: kgyjgNv
+        example: O2wG5LR
         type: string
         custom: []
     queryParameters: []
@@ -164,21 +164,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: accusantium
+        example: et
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ajast@example.org
+        example: buford.eichmann@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: false
-        example: upwkp
+        example: rooszvo
         type: string
         custom: []
     responses: []
@@ -201,7 +201,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: kgyjgNv
+        example: O2wG5LR
         type: string
         custom: []
     queryParameters: []
@@ -226,7 +226,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: kgyjgNv
+        example: O2wG5LR
         type: string
         custom: []
     queryParameters: []
@@ -236,7 +236,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - quia
+          - vel
         type: 'string[]'
         custom: []
     responses: []

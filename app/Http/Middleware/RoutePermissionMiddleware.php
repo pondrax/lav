@@ -22,7 +22,9 @@ class RoutePermissionMiddleware
         //   ->toString();
         // var_dump($permission);//,$request->getPathInfo(), $request->getMethod());
         $permission = Route::getCurrentRoute()->getName();
-        if (! auth()->user() || ! auth()->user()->can($permission)) {
+        
+        if (! auth()->user() || ! auth()->user()->canAtLeast([$permission])) {
+            // var_dump('ok');
             if ($request->ajax()) {
                 return response()->json([
                     'error' => [

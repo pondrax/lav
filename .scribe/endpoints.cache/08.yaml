@@ -84,49 +84,49 @@ endpoints:
         name: nik
         description: 'Must be 16 digits.'
         required: true
-        example: '7486586883703436'
+        example: '1341371995911931'
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: false
-        example: eaque
+        example: et
         type: string
         custom: []
       nip:
         name: nip
         description: ''
         required: false
-        example: eum
+        example: hic
         type: string
         custom: []
       telepon:
         name: telepon
         description: ''
         required: false
-        example: iusto
+        example: sit
         type: string
         custom: []
       jabatan:
         name: jabatan
         description: ''
         required: false
-        example: ut
+        example: aut
         type: string
         custom: []
       unit_kerja:
         name: unit_kerja
         description: ''
         required: false
-        example: maiores
+        example: reiciendis
         type: string
         custom: []
       golongan:
         name: golongan
         description: ''
         required: false
-        example: ipsa
+        example: quaerat
         type: string
         custom: []
     responses: []

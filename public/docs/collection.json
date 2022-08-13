@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "0b67d2bc-2930-4d71-9a12-49d57e70c613",
+        "_postman_id": "f1a1439e-8e63-4624-bbf1-fe7c49f68c07",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"zdicki@example.org\",\"password\":\"tpjad\"}"
+                            "raw": "{\"email\":\"mhauck@example.net\",\"password\":\"lesm\"}"
                         },
                         "description": "Handle authentication attempt",
                         "auth": {
@@ -100,7 +100,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"consequatur\",\"email\":\"eokon@example.net\",\"password\":\"bngqupl\"}"
+                            "raw": "{\"name\":\"soluta\",\"email\":\"christiansen.quinton@example.net\",\"password\":\"dn\"}"
                         },
                         "description": "Handle new registration",
                         "auth": {
@@ -158,7 +158,7 @@
                                 },
                                 {
                                     "key": "location",
-                                    "value": "https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&scope=openid+profile+email&response_type=code&state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI"
+                                    "value": "https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&scope=openid+profile+email&response_type=code&state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf"
                                 },
                                 {
                                     "key": "content-type",
@@ -170,11 +170,11 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "XSRF-TOKEN=eyJpdiI6ImZoTzFmZUVVNlJma2NEQkFXVS9lWFE9PSIsInZhbHVlIjoid1dWaGt2ejdnaXdGczJldlVZUTZMNnFTVmRhNTlhVlpMWllVanJZQVFmdVhyUUwwWjNsQm8wK3YwWDZSYTNEMmtnbnRCYlFKYjMwZzVCY0hLZnBnMVZiam0zSmVwS1AwSStnU3BreSsrSVdaRXdQcWszUnJRaDZZTXp3eUNMNmwiLCJtYWMiOiIwM2JhZTMwYWJmOWZmZjk4MzIxMjJlMDJhNDBkNmUyOTBjYWJiY2M5YWRhMDIwNTg4OTU1MGM2MzUxNDc4NGVjIiwidGFnIjoiIn0%3D; expires=Sat, 13 Aug 2022 14:58:41 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6ImpnTDRDd2p6V294WnF0TFdlMnhjR3c9PSIsInZhbHVlIjoic2R6SjRaejZXNUtXdmw5bFZ4V1FRMG5rdklSU0s1Ky81V1VQc2JrQXJFU0tBdGhKc0g5KzJaZkozWHRXUzB5S2xORXBmV2Y3c3JqN2t5YzAzWWp1Qmw3SHU4R0t1bjBwRmU0VkFzSE1vVmRXNGw2QVJwT0pFQ0ZNTDhLMlVaU0kiLCJtYWMiOiJiMTdmNTEwNDRlZWQ1YjE0MTdmYTc5ZGFkMGZmZTU1YzUwNTczNmIyY2IzNmVhODA3ZmE1ZWZlNWNiOGJhNWU4IiwidGFnIjoiIn0%3D; expires=Sat, 13 Aug 2022 14:58:41 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "XSRF-TOKEN=eyJpdiI6InYxaWtSVW9uS1h3aHQvcVVQRGRKSVE9PSIsInZhbHVlIjoiSE9SdlVUMUx4N1R3WEp3RTJwM3FUMldXa20zMjJRS0pVRC81YkE1Z2t3WXdmaUErZ0duK1ZFYzVhUXMwaHFUSklHNWI1RTVVenBFZC9Fa3FTckJCK0wxYTY1dFFmYmRzUUpTRW1OR1pFenQzUUxBd2diMGJxOTE3QXpwcCtjMGwiLCJtYWMiOiI3MTE1OTZmYTM2ZmE5ZjcwMzY2YjA4ZDhhZmVlYzJjYzk2YzczYjE3ZTBjZGYwZDc1NjY0NTQzNzBjZDc2YTdiIiwidGFnIjoiIn0%3D; expires=Sun, 14 Aug 2022 01:31:49 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6Ill0NFdkMTkvMTk5RXZralRqNG11SGc9PSIsInZhbHVlIjoiejhEZ1p6RW5qRy82emhhRTR5ZmV5V0FwUUltdG00ZDFzV0x3VUxmdEtOMUZ1N0ZBdFpQWG8xMlV6UDVDcUgzbHI2d1VrZFhHYnc4SUhSSmxOalZLbkw0UWlkRFhjWkpSWnRjWjAwZ3c2MTZtZ2hFbUxVd2NqUGIrL0x1cFIySEMiLCJtYWMiOiI5Y2ZmMjJjNzYxNmNiOTM1ZmQ0MTRmY2M0NTJkNDZiYWEwMTNlYzQyMmMyZGM2MmI1NGEzODA2NWVjOGM2ZjViIiwidGFnIjoiIn0%3D; expires=Sun, 14 Aug 2022 01:31:49 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 302,
-                            "body": "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" \/>\n        <meta http-equiv=\"refresh\" content=\"0;url='https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI'\" \/>\n\n        <title>Redirecting to https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI<\/title>\n    <\/head>\n    <body>\n        Redirecting to <a href=\"https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI\">https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI<\/a>.\n    <\/body>\n<\/html>",
+                            "body": "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" \/>\n        <meta http-equiv=\"refresh\" content=\"0;url='https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf'\" \/>\n\n        <title>Redirecting to https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf<\/title>\n    <\/head>\n    <body>\n        Redirecting to <a href=\"https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf\">https:\/\/accounts.google.com\/o\/oauth2\/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf<\/a>.\n    <\/body>\n<\/html>",
                             "name": ""
                         }
                     ]
@@ -230,7 +230,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "XSRF-TOKEN=eyJpdiI6InNxaU9nV2w1dWVabEF1ZFRnZy9WYUE9PSIsInZhbHVlIjoibGk2Vk41dnJralYvbklXUVRpQ2RrSFJvQUlybWZxUFRnNTV4YlVjSUV6U0hsOU5UOHFZei9JZG5Edk56YWpMTEt5Q0JyMGQ0Ni9mZWJKK2hHcWVQRlNYemJ4MDVmVVY4YWV5bzVqNGx1MTI2cW9NSVpQWVdmMXZsQ2h5WHFGSVQiLCJtYWMiOiIyNjcxMmI0MzZkYjc4ZmMxNjdlOGJmZTMxZmM5Y2YzNGY1NmY2NGYyNjNkNTAyMjEyOWM5NTQ3Yzc4ZDY0NWU2IiwidGFnIjoiIn0%3D; expires=Sat, 13 Aug 2022 14:58:41 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6Imhvd1NCTjUzM3lHVUNJQitFWFFSMGc9PSIsInZhbHVlIjoiaVpzN2R5bGVQZklZeVh2eFYrWkpjUzFnME1EeFI2VG54YmtFTVZ1RTVKd2doYjEzOWFOcm9Tc0ZMY1luRm5tdUlIYWlhWGVaeXpnemlpS2xyTmgzWnRFUEJBcTkvUVV3YU5XTlBuUFhpZGppcWdORmRVc1ZXaENBZXVKMkhDQUUiLCJtYWMiOiIwZWYwOWEzNTU1YjY3ZGQ2ZGY0YTJhYjliODAzMDdlZWZhZTE1YzdiODVmNDQ5NjZlNWMyMGY2NjMxNWYwNzM2IiwidGFnIjoiIn0%3D; expires=Sat, 13 Aug 2022 14:58:41 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "XSRF-TOKEN=eyJpdiI6IjBIMXdleWQ2WnBDSkx3ckZhZ2JpZkE9PSIsInZhbHVlIjoiYzMwR0lybHg3endZYlhLUnhLV2VobHE5MHlXV3hCeXVETnFRQ2d0ckoxU1JhcUJGVE5IQjIycVBtSmRWUVdKZFhqOFdYZ2RTR2ZWaHZNV09uN0VUK0ZGQStieGNXTVFPanNsVWV6RkhoeHZVREw1blhRMnRhay9lZGdGcEpyRlQiLCJtYWMiOiI1YmY1N2YzNTBlNjQyYjNjMjFhYjc2NWZhNTUwMTVkOWY5NTEyMTQ5ZTEwMDlmYTliZTdkNGRmNjRlNDgyMWE5IiwidGFnIjoiIn0%3D; expires=Sun, 14 Aug 2022 01:31:49 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6InZFd1ZSREw4bkg4b1FBR2d3Um9HT0E9PSIsInZhbHVlIjoiMHREL3BQWWViZTh6MmxITHlEUWlYQnlpRENvS3JLVlNpWXQwby9hZjE3T0x2akhEajI5djc2eVF1NHlGT1crSzNURkVVdS93ZmhEcUFySlJVZ1BSWXJnZ2pLalF1R0dvMFdleXY2cVR5WjNkV0JPaURVUHFnUUpEanN6ci9ORFQiLCJtYWMiOiI1ZjM1N2FkMGM3NjQ2MjFlOTZhZGVmMmZjMjdiZmZmYTg5MGY3ZjY4MWUzOWExOTFmYzk1NTc2OWEyNTY5YWJiIiwidGFnIjoiIn0%3D; expires=Sun, 14 Aug 2022 01:31:49 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 403,
@@ -343,7 +343,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"uri\":\"facilis\",\"model\":\"voluptates\",\"description\":\"culpa\",\"resources\":[\"autem\"],\"schema\":\"ipsum\"}"
+                            "raw": "{\"uri\":\"post\",\"methods\":[\"index\",\"show\",\"store\",\"update\",\"destroy\"],\"schema\":\"title:string, body:text, slug:string:unique, published_at:date\",\"force\":false}"
                         },
                         "description": ""
                     },
@@ -453,7 +453,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":\"eius\",\"name\":\"sit\",\"description\":\"explicabo\",\"icon\":\"nulla\",\"routes\":[{\"url\":\"sequi\",\"permission\":\"iste\"}]}"
+                            "raw": "{\"code\":\"consectetur\",\"name\":\"in\",\"description\":\"repudiandae\",\"icon\":\"voluptatem\",\"routes\":[{\"url\":\"asperiores\",\"permission\":\"ipsam\"}]}"
                         },
                         "description": ""
                     },
@@ -471,7 +471,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "LzVLYOj",
+                                    "value": "7L13vYy",
                                     "description": "The ID of the menu."
                                 }
                             ]
@@ -524,7 +524,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "LzVLYOj",
+                                    "value": "7L13vYy",
                                     "description": "The ID of the menu."
                                 }
                             ]
@@ -542,7 +542,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":\"officiis\",\"name\":\"aut\",\"description\":\"voluptas\",\"icon\":\"autem\",\"routes\":[{\"url\":\"illo\",\"permission\":\"consequatur\"}]}"
+                            "raw": "{\"code\":\"commodi\",\"name\":\"iusto\",\"description\":\"possimus\",\"icon\":\"aut\",\"routes\":[{\"url\":\"voluptatem\",\"permission\":\"blanditiis\"}]}"
                         },
                         "description": ""
                     },
@@ -560,7 +560,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "LzVLYOj",
+                                    "value": "7L13vYy",
                                     "description": "The ID of the menu."
                                 }
                             ]
@@ -675,7 +675,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "0m8KYA5",
+                                    "value": "2o2RGpK",
                                     "description": "The ID of the permission."
                                 }
                             ]
@@ -814,7 +814,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"aut\",\"slug\":\"earum\",\"description\":\"odit\",\"system\":true}"
+                            "raw": "{\"name\":\"voluptas\",\"slug\":\"qui\",\"description\":\"deleniti\",\"system\":true}"
                         },
                         "description": ""
                     },
@@ -832,7 +832,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2Oz60oz",
+                                    "value": "0jm0x23",
                                     "description": "The ID of the role."
                                 }
                             ]
@@ -885,7 +885,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2Oz60oz",
+                                    "value": "0jm0x23",
                                     "description": "The ID of the role."
                                 }
                             ]
@@ -903,7 +903,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"et\",\"slug\":\"voluptatum\",\"description\":\"molestias\",\"system\":false}"
+                            "raw": "{\"name\":\"nisi\",\"slug\":\"aut\",\"description\":\"inventore\",\"system\":false}"
                         },
                         "description": ""
                     },
@@ -921,7 +921,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2Oz60oz",
+                                    "value": "0jm0x23",
                                     "description": "The ID of the role."
                                 }
                             ]
@@ -954,7 +954,7 @@
                                 {
                                     "id": "role_id",
                                     "key": "role_id",
-                                    "value": "2Oz60oz",
+                                    "value": "0jm0x23",
                                     "description": "The ID of the role."
                                 }
                             ]
@@ -972,7 +972,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"permissions\":[\"magni\"]}"
+                            "raw": "{\"permissions\":[\"voluptatibus\"]}"
                         },
                         "description": ""
                     },
@@ -1082,7 +1082,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"reprehenderit\",\"email\":\"elza.hayes@example.com\",\"password\":\"d\"}"
+                            "raw": "{\"name\":\"non\",\"email\":\"yjacobson@example.org\",\"password\":\"uqajka\"}"
                         },
                         "description": "Save User"
                     },
@@ -1100,7 +1100,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "kgyjgNv",
+                                    "value": "O2wG5LR",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1153,7 +1153,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "kgyjgNv",
+                                    "value": "O2wG5LR",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1171,7 +1171,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"accusantium\",\"email\":\"ajast@example.org\",\"password\":\"upwkp\"}"
+                            "raw": "{\"name\":\"et\",\"email\":\"buford.eichmann@example.org\",\"password\":\"rooszvo\"}"
                         },
                         "description": "Update Detail User"
                     },
@@ -1189,7 +1189,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "kgyjgNv",
+                                    "value": "O2wG5LR",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1222,7 +1222,7 @@
                                 {
                                     "id": "user_id",
                                     "key": "user_id",
-                                    "value": "kgyjgNv",
+                                    "value": "O2wG5LR",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1240,241 +1240,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"roles\":[\"quia\"]}"
+                            "raw": "{\"roles\":[\"vel\"]}"
                         },
                         "description": "Attach Role to user"
-                    },
-                    "response": []
-                }
-            ]
-        },
-        {
-            "name": "BarTest",
-            "description": "",
-            "item": [
-                {
-                    "name": "Index bar_test",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/post\/bar_test",
-                            "query": [
-                                {
-                                    "key": "filter.created_at",
-                                    "value": "",
-                                    "description": "Filter Fields",
-                                    "disabled": true
-                                },
-                                {
-                                    "key": "sort",
-                                    "value": "created_at",
-                                    "description": "Sort Fields",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "order",
-                                    "value": "desc",
-                                    "description": "Order Direction",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "page",
-                                    "value": "1",
-                                    "description": "Page number to return.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "limit",
-                                    "value": "10",
-                                    "description": "Number of items to return in a page. Defaults to 10.",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/post\/bar_test?filter.created_at=&sort=created_at&order=desc&page=1&limit=10"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Display a listing of bar_test."
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Store bar_test",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/post\/bar_test",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/post\/bar_test"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"aut\",\"body\":\"exercitationem\",\"slug\":\"ut\",\"published_at\":\"2022-08-13T12:58:41\"}"
-                        },
-                        "description": "Store a newly created bar_test in storage."
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Show bar_test",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/post\/bar_test\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/post\/bar_test\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "aut",
-                                    "description": "The ID of the bar test."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Display the specified bar_test."
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Update the specified bar_test in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/post\/bar_test\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/post\/bar_test\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "molestias",
-                                    "description": "The ID of the bar test."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"sit\",\"body\":\"fugit\",\"slug\":\"voluptatem\",\"published_at\":\"2022-08-13T12:58:41\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove the specified bar_test from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/post\/bar_test\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/post\/bar_test\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "optio",
-                                    "description": "The ID of the bar test."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
                     },
                     "response": []
                 }
@@ -1559,6 +1327,76 @@
                             "name": ""
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Posttest",
+            "description": "",
+            "item": [
+                {
+                    "name": "Store Posttest",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posttest",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posttest"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"aliquam\",\"body\":\"delectus\",\"slug\":\"sunt\",\"published_at\":\"2022-08-13T23:31:49\"}"
+                        },
+                        "description": "Store a newly created Posttest."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the specified Posttest.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posttest\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posttest\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "explicabo",
+                                    "description": "The ID of the posttest."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"cumque\",\"body\":\"omnis\",\"slug\":\"aperiam\",\"published_at\":\"2022-08-13T23:31:49\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
                 }
             ]
         },
@@ -1664,7 +1502,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"nik\":\"7486586883703436\",\"name\":\"eaque\",\"nip\":\"eum\",\"telepon\":\"iusto\",\"jabatan\":\"ut\",\"unit_kerja\":\"maiores\",\"golongan\":\"ipsa\"}"
+                            "raw": "{\"nik\":\"1341371995911931\",\"name\":\"et\",\"nip\":\"hic\",\"telepon\":\"sit\",\"jabatan\":\"aut\",\"unit_kerja\":\"reiciendis\",\"golongan\":\"quaerat\"}"
                         },
                         "description": "Update User Profile"
                     },

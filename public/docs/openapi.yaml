@@ -39,11 +39,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: zdicki@example.org
+                  example: mhauck@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: tpjad
+                  example: lesm
               required:
                 - email
                 - password
@@ -103,15 +103,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: soluta
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: eokon@example.net
+                  example: christiansen.quinton@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: bngqupl
+                  example: dn
               required:
                 - name
                 - email
@@ -143,7 +143,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI'\" />\n\n        <title>Redirecting to https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI\">https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=TRqJCqLOBWfI7BWfC9QVbNRy9Dev6axNcCYbsHqI</a>.\n    </body>\n</html>"
+                example: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf'\" />\n\n        <title>Redirecting to https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf\">https://accounts.google.com/o/oauth2/auth?client_id=501453405497-idqalfkaeacaaik19k53qefsddsairkp.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=pX76MGgWHG4n0fv5pqMKgLiDCVW8aIzo3ZpzEOdf</a>.\n    </body>\n</html>"
       tags:
         - '#Auth Social'
       security: []
@@ -320,7 +320,7 @@ paths:
       tags:
         - '#Dev Management'
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
@@ -328,27 +328,30 @@ paths:
               properties:
                 uri:
                   type: string
-                  description: ''
-                  example: facilis
-                model:
-                  type: string
-                  description: ''
-                  example: voluptates
-                description:
-                  type: string
-                  description: ''
-                  example: culpa
-                resources:
+                  description: 'Uri Path / Model Name.'
+                  example: post
+                methods:
                   type: array
-                  description: ''
+                  description: 'Available Methods.'
                   example:
-                    - autem
+                    - index
+                    - show
+                    - store
+                    - update
+                    - destroy
                   items:
                     type: string
                 schema:
                   type: string
-                  description: ''
-                  example: ipsum
+                  description: 'Generate Migration with schema.'
+                  example: 'title:string, body:text, slug:string:unique, published_at:date'
+                force:
+                  type: boolean
+                  description: 'Force Generate.'
+                  example: false
+              required:
+                - methods
+                - schema
   /api/app/menu:
     get:
       summary: 'List Menu'
@@ -478,19 +481,19 @@ paths:
                 code:
                   type: string
                   description: ''
-                  example: eius
+                  example: consectetur
                 name:
                   type: string
                   description: ''
-                  example: sit
+                  example: in
                 description:
                   type: string
                   description: ''
-                  example: explicabo
+                  example: repudiandae
                 icon:
                   type: string
                   description: ''
-                  example: nulla
+                  example: voluptatem
                 routes:
                   type: array
                   description: ''
@@ -502,11 +505,11 @@ paths:
                       url:
                         type: string
                         description: ''
-                        example: sequi
+                        example: asperiores
                       permission:
                         type: string
                         description: ''
-                        example: iste
+                        example: ipsam
                     required:
                       - url
                       - permission
@@ -594,19 +597,19 @@ paths:
                 code:
                   type: string
                   description: ''
-                  example: officiis
+                  example: commodi
                 name:
                   type: string
                   description: ''
-                  example: aut
+                  example: iusto
                 description:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: possimus
                 icon:
                   type: string
                   description: ''
-                  example: autem
+                  example: aut
                 routes:
                   type: array
                   description: ''
@@ -618,11 +621,11 @@ paths:
                       url:
                         type: string
                         description: ''
-                        example: illo
+                        example: voluptatem
                       permission:
                         type: string
                         description: ''
-                        example: consequatur
+                        example: blanditiis
                     required:
                       - url
                       - permission
@@ -664,7 +667,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the menu.'
-        example: LzVLYOj
+        example: 7L13vYy
         required: true
         schema:
           type: string
@@ -805,7 +808,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the permission.'
-        example: 0m8KYA5
+        example: 2o2RGpK
         required: true
         schema:
           type: string
@@ -938,15 +941,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: aut
+                  example: voluptas
                 slug:
                   type: string
                   description: ''
-                  example: earum
+                  example: qui
                 description:
                   type: string
                   description: ''
-                  example: odit
+                  example: deleniti
                 system:
                   type: boolean
                   description: ''
@@ -1034,15 +1037,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: et
+                  example: nisi
                 slug:
                   type: string
                   description: ''
-                  example: voluptatum
+                  example: aut
                 description:
                   type: string
                   description: ''
-                  example: molestias
+                  example: inventore
                 system:
                   type: boolean
                   description: ''
@@ -1083,7 +1086,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the role.'
-        example: 2Oz60oz
+        example: 0jm0x23
         required: true
         schema:
           type: string
@@ -1127,7 +1130,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - magni
+                    - voluptatibus
                   items:
                     type: string
               required:
@@ -1137,7 +1140,7 @@ paths:
         in: path
         name: role_id
         description: 'The ID of the role.'
-        example: 2Oz60oz
+        example: 0jm0x23
         required: true
         schema:
           type: string
@@ -1270,15 +1273,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: reprehenderit
+                  example: non
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: elza.hayes@example.com
+                  example: yjacobson@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: d
+                  example: uqajka
               required:
                 - name
                 - email
@@ -1362,15 +1365,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: accusantium
+                  example: et
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ajast@example.org
+                  example: buford.eichmann@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: upwkp
+                  example: rooszvo
               required:
                 - name
                 - email
@@ -1407,7 +1410,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: kgyjgNv
+        example: O2wG5LR
         required: true
         schema:
           type: string
@@ -1451,7 +1454,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - quia
+                    - vel
                   items:
                     type: string
               required:
@@ -1461,288 +1464,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: kgyjgNv
-        required: true
-        schema:
-          type: string
-  /api/post/bar_test:
-    get:
-      summary: 'Index bar_test'
-      description: 'Display a listing of bar_test.'
-      parameters:
-        -
-          in: query
-          name: filter.created_at
-          description: 'Filter Fields'
-          example: null
-          required: false
-          schema:
-            type: string
-            description: 'Filter Fields'
-            example: null
-        -
-          in: query
-          name: sort
-          description: 'Sort Fields'
-          example: created_at
-          required: false
-          schema:
-            type: string
-            description: 'Sort Fields'
-            example: created_at
-        -
-          in: query
-          name: order
-          description: 'Order Direction'
-          example: desc
-          required: false
-          schema:
-            type: string
-            description: 'Order Direction'
-            example: desc
-        -
-          in: query
-          name: page
-          description: 'Page number to return.'
-          example: 1
-          required: false
-          schema:
-            type: string
-            description: 'Page number to return.'
-            example: 1
-        -
-          in: query
-          name: limit
-          description: 'Number of items to return in a page. Defaults to 10.'
-          example: 10
-          required: false
-          schema:
-            type: string
-            description: 'Number of items to return in a page. Defaults to 10.'
-            example: 10
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - BarTest
-    post:
-      summary: 'Store bar_test'
-      description: 'Store a newly created bar_test in storage.'
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - BarTest
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  description: ''
-                  example: aut
-                body:
-                  type: string
-                  description: ''
-                  example: exercitationem
-                slug:
-                  type: string
-                  description: ''
-                  example: ut
-                published_at:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2022-08-13T12:58:41'
-              required:
-                - title
-                - body
-                - slug
-                - published_at
-  '/api/post/bar_test/{id}':
-    get:
-      summary: 'Show bar_test'
-      description: 'Display the specified bar_test.'
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - BarTest
-    put:
-      summary: 'Update the specified bar_test in storage.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - BarTest
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  description: ''
-                  example: sit
-                body:
-                  type: string
-                  description: ''
-                  example: fugit
-                slug:
-                  type: string
-                  description: ''
-                  example: voluptatem
-                published_at:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2022-08-13T12:58:41'
-              required:
-                - title
-                - body
-                - slug
-                - published_at
-    delete:
-      summary: 'Remove the specified bar_test from storage.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - BarTest
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the bar test.'
-        example: aut
+        example: O2wG5LR
         required: true
         schema:
           type: string
@@ -1837,6 +1559,129 @@ paths:
                     example: Unauthenticated.
       tags:
         - Dashboard
+  /api/posttest:
+    post:
+      summary: 'Store Posttest'
+      description: 'Store a newly created Posttest.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Posttest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: aliquam
+                body:
+                  type: string
+                  description: ''
+                  example: delectus
+                slug:
+                  type: string
+                  description: ''
+                  example: sunt
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2022-08-13T23:31:49'
+              required:
+                - title
+                - body
+                - slug
+                - published_at
+  '/api/posttest/{id}':
+    put:
+      summary: 'Update the specified Posttest.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Posttest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: cumque
+                body:
+                  type: string
+                  description: ''
+                  example: omnis
+                slug:
+                  type: string
+                  description: ''
+                  example: aperiam
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2022-08-13T23:31:49'
+              required:
+                - title
+                - body
+                - slug
+                - published_at
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the posttest.'
+        example: explicabo
+        required: true
+        schema:
+          type: string
   /api/app/profile:
     get:
       summary: 'Get Profile'
@@ -1966,31 +1811,31 @@ paths:
                 nik:
                   type: string
                   description: 'Must be 16 digits.'
-                  example: '7486586883703436'
+                  example: '1341371995911931'
                 name:
                   type: string
                   description: ''
-                  example: eaque
+                  example: et
                 nip:
                   type: string
                   description: ''
-                  example: eum
+                  example: hic
                 telepon:
                   type: string
                   description: ''
-                  example: iusto
+                  example: sit
                 jabatan:
                   type: string
                   description: ''
-                  example: ut
+                  example: aut
                 unit_kerja:
                   type: string
                   description: ''
-                  example: maiores
+                  example: reiciendis
                 golongan:
                   type: string
                   description: ''
-                  example: ipsa
+                  example: quaerat
               required:
                 - nik
 tags:
@@ -2013,10 +1858,10 @@ tags:
     name: '#User Management'
     description: ''
   -
-    name: BarTest
+    name: Dashboard
     description: ''
   -
-    name: Dashboard
+    name: Posttest
     description: ''
   -
     name: Profile

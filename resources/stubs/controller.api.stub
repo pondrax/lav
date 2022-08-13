@@ -1,0 +1,46 @@
+<?php
+
+namespace {{namespace}};
+
+use {{rootNamespace}}Models\{{model}};
+use {{rootNamespace}}Http\Controllers\Controller;
+use {{rootNamespace}}Http\Resources\Response;
+
+/**
+ * @group {{model}}
+ * @authenticated
+ */
+class {{class}} extends Controller
+{
+	/**
+     * Index {{model}}
+     *
+	 * Display a listing of {{model}}.
+	 */
+	public function index({{model}} ${{resource}})
+	{
+        return new Response(${{resource}}->filter()->table());
+	}
+
+	/**
+     * Show {{model}}
+     *
+	 * Display the specified {{model}}.
+	 */
+	public function show({{model}} ${{resource}})
+	{
+        return new Response(${{resource}});
+	}
+
+	/**
+	 * Remove the specified {{model}}.
+	 *
+	 * @param {{model}}  ${{resource}}
+	 */
+	public function destroy({{model}} ${{resource}})
+	{
+        $response = ${{resource}}->delete();
+        
+        return new Response($response, 200, 'Deleted');
+	}
+}

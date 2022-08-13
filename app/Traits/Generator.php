@@ -10,51 +10,72 @@ use Illuminate\Support\Facades\File;
 
 class Generator
 {
-    protected $generated = [
-        'model' => null,
-        'migration' => null,
-        'controller' => null,
-        'request' => [],
-    ];
+    protected $generated;
 
+    public function __construct()
+    {
+        $this->generated = collect([]);
+    }
     public function generate($name, $methods = [], $schema = null, $migrate = false, $force = false)
     {
         chdir(base_path()); // Set artisan directory at base_path
-        $resourceName = str($name)->afterLast('/')->ucfirst();
         if (in_array('store', $methods)) {
-            $messages[] = $this->generateRequest('Store'.$resourceName, $schema, $force);
+            $this->generateRequest('Store_'.$name, $schema, $force);
         }
         if (in_array('update', $methods)) {
-            $messages[] = $this->generateRequest('Update'.$resourceName, $schema, $force);
+            $this->generateRequest('Update_'.$name, $schema, $force);
         }
+        $this->cleanMigration($name, $force);
+        $this->generateModel($name, $schema, $force);
+        $this->generateController($name, $methods, $force);
+        $this->generateRoute($name, $methods);
+        $this->generatePermission($name, $methods);
+        $this->migrate($force);
+
+        $messages = $this->generated->map(fn($i)=>$i['message']);
+
+        return [$this->generated, $messages];
+    }
+
+    public function cleanMigration($name, $force)
+    {
         if ($force) { //remove similar migration
             $migrationName = 'create_'.str($name)->afterLast('/').'s_table.php';
             collect(File::glob(base_path("database/migrations/*$migrationName")))->each(function ($item) {
                 unlink($item);
             });
         }
-        $messages[] = $this->generateModel($name, $schema, $force);
-        $messages[] = $this->generateController($name, $methods, $force);
-        $messages[] = $this->generateRoute($name, $methods);
-        $messages[] = $this->generatePermission($name, $methods);
-        // $messages[] = $this->migrate($migrate);
-
-        return [$this->generated, $messages];
+    }
+    public function getStub($methods)
+    {
+        $methods = collect($methods);
+        if($methods->contains('store') && $methods->contains('update')){
+            return 'controller_api_all';
+        }elseif($methods->contains('store')){
+            return 'controller_api_store';
+        }elseif($methods->contains('update')){
+            return 'controller_api_update';
+        }
+        return 'controller_api';
     }
 
     public function generateController($name, $methods = [], $force = false)
-    {
+    {        
         Artisan::call('generate:controller', [
             'name' => $name,
             '--force' => $force,
-            '--stub' => 'controller_api',
+            '--stub' => $this->getStub($methods),
         ]);
         $out = str(Artisan::output())->replace('- ./', '');
         if ($out->contains('app')) {
-            $this->generated['controller'] = $out->explode(PHP_EOL)->get(1);
+            [$msg,$file] = $out->explode(PHP_EOL);
+            $this->generated->push([
+                'type'  => 'controller',
+                'file'  => $file,
+                'message' => $msg,
+                'props' =>$this->fileToNamespace($file)
+            ]);
         }
-
-        return $out;
     }
 
     public function generateRequest($name, $schema = null, $force = false)
@@ -64,16 +85,19 @@ class Generator
             '--force' => $force,
         ]);
         $out = str(Artisan::output())->replace('- ./', '');
+        
         if ($out->contains('app')) {
-            $file = $out->explode(PHP_EOL)->get(1);
-            $content = str(file_get_contents($file));
-            $rules = $this->parseSchemaRules($schema);
-            file_put_contents($file, $content->replace('{{rules}}', $rules));
+            [$msg,$file] = $out->explode(PHP_EOL);
+            $rules = $this->parseSchemaRules($name, $schema);
+            $this->generated->push([
+                'type'  => 'request',
+                'file'  => $file,
+                'message' => $msg,
+                'props' => $rules
+            ]);
 
-            $this->generated['request'][] = $file;
+            File::replaceInFile('{{rules}}', VarExporter::export($rules, indentLevel:2) , $file);
         }
-
-        return $out;
     }
 
     public function generateModel($name, $schema, $force)
@@ -86,50 +110,50 @@ class Generator
         ]);
         $out = str(Artisan::output())->replace('- ./', '');
         if ($out->contains('app')) {
-            $file = $out->explode(PHP_EOL)->get(1);
-            $content = str(file_get_contents($file));
+            [$modelMsg,$model,$migrationMsg, $migration] = $out->explode(PHP_EOL);
             $fillable = $this->parseSchemaFillable($schema);
-            file_put_contents($file, $content->replace('{{fillable}}', $fillable));
-
-            $this->generated['model'] = $file;
-            $this->generated['migration'] = $out->explode(PHP_EOL)->get(3);
+            $this->generated->push([
+                'type'  => 'model',
+                'file'  => $model,
+                'message' => $modelMsg,
+                'props' => compact('fillable')
+            ])->push([
+                'type'  => 'migration',
+                'file'  => $migration,
+                'message' => $migrationMsg,
+                'props' => null
+            ]);
+            File::replaceInFile('{{fillable}}', VarExporter::export($fillable, indentLevel:1), $model);
         }
 
-        return $out;
     }
 
     public function generateRoute($name, $methods = [])
     {
-        $routePath = base_path('routes/api.php');
-
+        $action = $this->generated->where('type','controller')->first()['props'];
         $generated = implode('', [
             // PHP_EOL,
-            "Route::apiResource('$name', ".$this->fileToNamespace($this->generated['controller']).'::class)',
-            // PHP_EOL."\t",
+            "Route::apiResource('$name', $action::class)",
             "->only(['".implode("','", $methods)."'])",
-            // PHP_EOL."\t",
             "->middleware(['auth:sanctum','route.permission']);",
             ' #generated#',
         ]);
-
-        $routeTxt = '';
-        $file = new \SplFileObject($routePath);
-        $exist = false;
-        while (! $file->eof()) {
-            $line = str($file->fgets());
-            if ($line->contains('#generated') && $line->contains($name)) {
-                $exist = true;
-                $routeTxt .= $generated;
-            } else {
-                $routeTxt .= $line;
-            }
+        
+        $path = base_path('routes/api.php');
+        $txt = File::get($path);
+        $pattern = "/(^Route.*\'$name\'.*\#generated\#$)/im";
+        if(preg_match($pattern, $txt)){
+            $txt = preg_replace($pattern, $generated, $txt);
+        }else{
+            $txt.= PHP_EOL . $generated;
         }
-        if (! $exist) {
-            $routeTxt .= PHP_EOL.$generated;
-        }
-        file_put_contents($routePath, $routeTxt);
-
-        return "Route added successfully.\r\n";
+        File::put($path,$txt);
+        $this->generated->push([
+            'type'  => 'route',
+            'file'  => $path,
+            'message' => 'Route added successfully',
+            'props' => $generated
+        ]);
     }
 
     public function migrate()
@@ -144,7 +168,8 @@ class Generator
         collect($methods)->each(function($method) use($name){
             Permission::firstOrCreate([
                 'name' =>  $name->ucfirst() . ' ' . $method,
-                'slug'  => $name . '.' . $method
+                'slug'  => $name . '.' . $method,
+                'system' => 1
             ])->attachRoleBySlug('developer');
         });
         return 'Permissions Generated, Assigned to Role Developer';
@@ -169,14 +194,16 @@ class Generator
         return $schema;
     }
 
-    public function parseSchemaRules($schema)
+    public function parseSchemaRules($name, $schema)
     {
         $rules = $this->parseSchema($schema)->filter(function ($item) {
             return ! in_array($item['name'], ['id', 'created_at', 'updated_at']);
-        })->mapWithKeys(function ($item) {
+        })->mapWithKeys(function ($item) use($name){
+            $validators = ['string','date','integer','uuid'];
             $option = collect([
                 isset($item['options']['nullable']) ? '' : 'required',
-                $item['type'],
+                isset($item['options']['unique']) ? 'unique:'. str($name)->afterLast('_')->afterLast('/') . 's' : '',
+                in_array($item['type'], $validators)?$item['type']: 'string',
             ])->filter();
 
             return [
@@ -184,7 +211,7 @@ class Generator
             ];
         })->all();
 
-        return VarExporter::export($rules, indentLevel: 2);
+        return $rules;
     }
 
     public function parseSchemaFillable($schema)
@@ -195,7 +222,7 @@ class Generator
             return $item['name'];
         })->values()->all();
 
-        return VarExporter::export($fillable, indentLevel: 1);
+        return $fillable;
     }
 
     public function fileToNamespace($filePath)
